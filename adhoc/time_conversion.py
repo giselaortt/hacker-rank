@@ -1,4 +1,4 @@
-#!/bin/python3
+#https://www.hackerrank.com/challenges/one-week-preparation-kit-time-conversion/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=one-week-preparation-kit&playlist_slugs%5B%5D=one-week-day-one
 
 import math
 import os
@@ -14,14 +14,15 @@ import sys
 #
 
 def timeConversion(s):
-    if( s[-2] == 'P' ):
+    if( s[-2] == 'P' and int(s[0:2]) != 12 ):
         hr = int(s[0:2])+12
-        print(hr)
         return str(hr)+s[2:-2]
+    if( s[-2] == 'A' and int(s[0:2]) == 12 ):
+        return '' + s[2:-2]
     else:
         return s[0:-2]
-    
-    
+
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
@@ -32,3 +33,4 @@ if __name__ == '__main__':
     fptr.write(result + '\n')
 
     fptr.close()
+
