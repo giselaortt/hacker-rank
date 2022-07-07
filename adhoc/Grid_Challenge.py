@@ -11,26 +11,39 @@ import re
 import sys
 
 
-def superDigit(n, k):
-    n = str(n)
-    number = ''.join(n*k)
-    while(len(number) > 1):
-        number = str(sum( [int(value) for value in number] ))
-        
-    return number
+
+def gridChallenge(grid):
+
+    print(grid)
+
+    for i in range(len(grid)) :
+        grid[i] = list(grid[i])
+        grid[i].sort()
+
+    print(grid)
+
+    numberOfRows = len(grid)
+    numberOfColums = len(grid[0])
+
+    for i in range( numberOfColums ):
+        for j in range( numberOfRows -1 ):
+            if( grid[j][i] > grid[j+1][i] ):
+                return "NO"
+
+    return "YES"
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    first_multiple_input = input().rstrip().split()
+    t = int(input().strip())
 
-    n = first_multiple_input[0]
+    for t_itr in range(t):
+        n = int(input().strip())
 
-    k = int(first_multiple_input[1])
+        grid = []
 
-    result = superDigit(n, k)
+        for _ in range(n):
+            grid_item = input()
+            grid.append(grid_item)
 
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+        result = gridChallenge(grid)
 
