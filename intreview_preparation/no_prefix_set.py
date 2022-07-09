@@ -44,7 +44,6 @@ if __name__ == '__main__':
                 break
 
             prefixes = prefixes.union( newPrefixes ) 
-            '''
 
     print(answer)
 
