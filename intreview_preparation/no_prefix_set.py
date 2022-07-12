@@ -9,17 +9,15 @@ import random
 import re
 import sys
 
-
-'''
+##  The big question here is, how to generate only the minimal amount of prefixes that i will need ?
+## TML with this solution with 2 hashtables on 7 testcases.
 def generateAllPrefixes( word ):
     answer = set()
-    for i in range( len(word) ):
+    for i in range( len(word) - 1 ):
         answer.add( word[ : i ] )
 
     return answer
-'''
-##  The big question here is, how to generate only the minimal amount of prefixes that i will need ?
-## TML with this solution with 2 hashtables on 7 testcases.
+
 
 if __name__ == '__main__':
     n = int(input().strip())
@@ -36,7 +34,6 @@ if __name__ == '__main__':
         
         else:
             words.add( newWord )
-            '''
             newPrefixes = generateAllPrefixes( newWord )
 
             if( newPrefixes & words ):
@@ -44,8 +41,6 @@ if __name__ == '__main__':
                 break
 
             prefixes = prefixes.union( newPrefixes ) 
-            '''
 
     print(answer)
-
 
